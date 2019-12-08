@@ -2,7 +2,7 @@
 
 <p align="center">A simple, yet feature rich color picker and manipulator</p>
 <br><br>
-<img align="center" src="scrot.png">
+<img align="right" src="scrot.png">
 
 **Usage:**
 
