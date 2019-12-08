@@ -75,7 +75,7 @@ func PrintInfo(col string, r int, g int, b int) int {
 	} else if col == "fore" {
 		beg = escape.Vint(38, 2, r, g, b)
 	} else if col == "back" {
-		beg = escape.Vint(48, 2, r, g, b)
+		beg = escape.Vint(38, 2, r, g, b, 7)
 	}
 
 	output := beg + "rgb(" + strconv.Itoa(r) + ", " + strconv.Itoa(g) + ", " + strconv.Itoa(b) + ") " +
