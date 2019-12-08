@@ -4,7 +4,7 @@
 
 <center>
 <img src="scrot.png"></img>
-<center>
+</center>
 
 **Usage:**
 
