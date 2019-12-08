@@ -2,7 +2,7 @@
 
 <p align="center">A simple, yet feature rich color picker and manipulator (w/ vi keybindings!)</p>
 <br><br>
-<img align="left" src="scrot.png">
+<img align="left" src="assets/scrot.png">
 
 **Usage:**
 
@@ -33,5 +33,6 @@ q: Exit the program
 
 **Installation**
 
-* Clone przm: ```git clone http://github.com/geremachek/przm```
-* Add ```przm``` to your path
+```console
+go get http://github.com/geremachek/przm/cmd/...
+```

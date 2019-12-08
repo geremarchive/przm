@@ -2,11 +2,12 @@ package main
 
 import (
 	"fmt"
-	"strings"
-	"strconv"
 	"os"
-	fu "./funcs"
+	"strconv"
+	"strings"
+
 	"github.com/geremachek/escape"
+	"github.com/geremachek/przm"
 )
 
 const help = `Usage: przm [OPTION]
@@ -41,7 +42,7 @@ func main() {
 		optF bool
 		optB bool
 
-		ch rune
+		ch   rune
 		olen int
 
 		r int
@@ -75,18 +76,18 @@ func main() {
 		}
 	}
 
-	fu.HideCursor()
+	przm.HideCursor()
 
 	for {
 		if optF {
-			olen = fu.PrintInfo("fore", r, g, b)
+			olen = przm.PrintInfo("fore", r, g, b)
 		} else if optB {
-			olen = fu.PrintInfo("back", r, g, b)
+			olen = przm.PrintInfo("back", r, g, b)
 		} else {
-			olen = fu.PrintInfo("normal", r, g, b)
+			olen = przm.PrintInfo("normal", r, g, b)
 		}
 
-		ch = fu.Getru()
+		ch = przm.Getru()
 
 		if ch == 'q' {
 			if optO {
@@ -96,7 +97,7 @@ func main() {
 					fmt.Print("rgb(" + strconv.Itoa(r) + ", " +
 						strconv.Itoa(g) + ", " + strconv.Itoa(b) + ")")
 				} else if optH {
-					fmt.Print(fu.GetHex(r, g, b))
+					fmt.Print(przm.GetHex(r, g, b))
 				} else {
 					fmt.Print("\033[1A")
 				}
@@ -104,25 +105,25 @@ func main() {
 
 			break
 		} else if ch == 'h' {
-			r = fu.IncVal(r, inc)
+			r = przm.IncVal(r, inc)
 		} else if ch == 'j' {
-			g = fu.IncVal(g, inc)
-		} else if ch ==  'k' {
-			b = fu.IncVal(b, inc)
+			g = przm.IncVal(g, inc)
+		} else if ch == 'k' {
+			b = przm.IncVal(b, inc)
 		} else if ch == 'l' {
-			r = fu.IncVal(r, inc)
-			g = fu.IncVal(g, inc)
-			b = fu.IncVal(b, inc)
+			r = przm.IncVal(r, inc)
+			g = przm.IncVal(g, inc)
+			b = przm.IncVal(b, inc)
 		} else if ch == 'b' {
-			r = fu.DecVal(r, inc)
+			r = przm.DecVal(r, inc)
 		} else if ch == 'n' {
-			g = fu.DecVal(g, inc)
+			g = przm.DecVal(g, inc)
 		} else if ch == 'm' {
-			b = fu.DecVal(b, inc)
+			b = przm.DecVal(b, inc)
 		} else if ch == ',' {
-			r = fu.DecVal(r, inc)
-			g = fu.DecVal(g, inc)
-			b = fu.DecVal(b, inc)
+			r = przm.DecVal(r, inc)
+			g = przm.DecVal(g, inc)
+			b = przm.DecVal(b, inc)
 		} else if ch == ' ' {
 			r, g, b = 0, 0, 0
 		} else if ch > 47 && ch < 58 {
@@ -138,5 +139,5 @@ func main() {
 	}
 
 	fmt.Println()
-	fu.ShowCursor()
+	przm.ShowCursor()
 }
