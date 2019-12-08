@@ -2,6 +2,10 @@
 
 <p align="center">A simple, yet feature rich color picker and manipulator</center>
 
+<center>
+<img src="scrot.png"></img>
+<center>
+
 **Usage:**
 
 ```
