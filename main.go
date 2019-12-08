@@ -27,7 +27,8 @@ b: Decrement the 'R' value
 n: Decrement the 'G' value
 m: Decrement the 'B' value
 ,: Decrement all values (dims the color)
-[space]: Sets the color to black`
+[space]: Sets the color to black
+q: Exit the program`
 
 func main() {
 	var (

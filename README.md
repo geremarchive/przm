@@ -1,6 +1,6 @@
 <h1 align="center">przm 🎨</h1>
 
-<p align="center">A simple, yet feature rich color picker and manipulator</p>
+<p align="center">A simple, yet feature rich color picker and manipulator (w/ vi keybindings!)</p>
 <br><br>
 <img align="left" src="scrot.png">
 
@@ -26,6 +26,7 @@ n: Decrement the 'G' value
 m: Decrement the 'B' value
 ,: Decrement all values (dims the color)
 [space]: Sets the color to black
+q: Exit the program
 ```
 
 **Installation**
