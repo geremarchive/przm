@@ -7,7 +7,7 @@
 **Usage:**
 
 ```
-Usage: hue [OPTION]
+Usage: przm [OPTION]
 A simple, yet feature rich color picker and manipulator
 
 --help, -h: Display this information

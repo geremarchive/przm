@@ -9,7 +9,7 @@ import (
 	"github.com/geremachek/escape"
 )
 
-const help = `Usage: hue [OPTION]
+const help = `Usage: przm [OPTION]
 A simple, yet feature rich color picker and manipulator
 
 --help, -h: Display this information
