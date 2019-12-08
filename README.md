@@ -26,7 +26,9 @@ n: Decrement the 'G' value
 m: Decrement the 'B' value
 ,: Decrement all values (dims the color)
 [space]: Sets the color to black
+
 q: Exit the program
+[number]: Set the increment to [number] (0 = 10)
 ```
 
 **Installation**
