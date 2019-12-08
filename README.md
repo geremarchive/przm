@@ -1,6 +1,6 @@
 <h1 align="center">przm 🎨</h1>
 
-<p align="center">A simple, yet feature rich color picker and manipulator</center>
+<p align="center">A simple, yet feature rich color picker and manipulator</p>
 <br><br>
 <img align="center" src="scrot.png">
 
@@ -27,3 +27,8 @@ m: Decrement the 'B' value
 ,: Decrement all values (dims the color)
 [space]: Sets the color to black
 ```
+
+**Installation**
+
+* Clone przm: ```git clone -u http://github.com/geremachek/przm```
+* Add ```przm``` to your path
