@@ -1,7 +1,7 @@
 <h1 align="center">przm 🎨</h1>
 
 <p align="center">A simple, yet feature rich color picker and manipulator</center>
-
+<br>
 <img align="center" src="scrot.png">
 
 **Usage:**
