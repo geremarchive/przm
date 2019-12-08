@@ -33,5 +33,5 @@ q: Exit the program
 
 **Installation**
 
-* Clone przm: ```git clone -u http://github.com/geremachek/przm```
+* Clone przm: ```git clone http://github.com/geremachek/przm```
 * Add ```przm``` to your path
