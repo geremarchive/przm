@@ -1,3 +1,1 @@
-<center>
-# przm 🎨
-</center>
+<h1 align="center">przm 🎨</h1>
