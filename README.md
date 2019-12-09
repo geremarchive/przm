@@ -7,7 +7,7 @@
 **Usage:**
 
 ```
-Usage: przm [OPTION]
+Usage: przm [OPTION] [COLOR]
 A simple, yet feature rich color picker and manipulator
 
 --help, -h: Display this information

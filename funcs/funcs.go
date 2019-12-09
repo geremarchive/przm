@@ -67,6 +67,18 @@ func GetHex(r int, g int, b int) (hex string) {
 	return
 }
 
+func GetRGB(hex string) (r int, g int, b int) {
+	iSlice := []int{}
+	var iconv int64
+
+	for i := 0; i < len(hex); i += 2 {
+		iconv, _ = strconv.ParseInt(string(hex[i:i+2]), 16, 64)
+		iSlice = append(iSlice, int(iconv))
+	}
+
+	return iSlice[0], iSlice[1], iSlice[2]
+}
+
 func PrintInfo(col string, r int, g int, b int) int {
 	var beg string
 

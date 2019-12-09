@@ -9,7 +9,7 @@ import (
 	"github.com/geremachek/escape"
 )
 
-const help = `Usage: przm [OPTION]
+const help = `Usage: przm [OPTION] [COLOR]
 A simple, yet feature rich color picker and manipulator
 
 --help, -h: Display this information
@@ -72,6 +72,12 @@ func main() {
 					os.Exit(0)
 				}
 			}
+
+			if len(args) == 2 {
+				r, g, b = fu.GetRGB(args[1])
+			}
+		} else {
+			r, g, b = fu.GetRGB(args[0])
 		}
 	}
 
