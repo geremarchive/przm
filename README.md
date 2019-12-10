@@ -2,7 +2,7 @@
 
 <p align="center">A simple, yet feature rich color picker and manipulator (w/ vi keybindings!)</p>
 <br><br>
-<img align="left" src="scrot.png">
+<p align="center"><img src="scrot.png"></p>
 
 **Usage:**
 
@@ -30,8 +30,3 @@ m: Decrement the 'B' value
 q: Exit the program
 [number]: Set the increment to [number] (0 = 10)
 ```
-
-**Installation**
-
-* Clone przm: ```git clone http://github.com/geremachek/przm```
-* Add ```przm``` to your path

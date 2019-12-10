@@ -4,9 +4,9 @@ import (
 	"fmt"
 	"strings"
 	"strconv"
+	"flag"
 	"os"
-	fu "./funcs"
-	"github.com/geremachek/escape"
+	fu "przm/funcs"
 )
 
 const help = `Usage: przm [OPTION] [COLOR]
@@ -34,59 +34,40 @@ q: Exit the program
 
 func main() {
 	var (
-		args []string = os.Args[1:]
-		optR bool
-		optH bool
-		optO bool
-		optF bool
-		optB bool
-
 		ch rune
 		olen int
 
-		r int
-		g int
-		b int
+		r, g, b int
 
 		inc int = 1
 	)
 
-	if len(args) > 0 {
-		if args[0] == "-h" || args[0] == "--help" {
+	if len(os.Args) > 1 {
+		if os.Args[1] == "-h" || os.Args[1] == "--help" {
 			fmt.Println(help)
 			os.Exit(0)
-		} else if rune(string(args[0])[0]) == '-' {
-			for _, elem := range string(args[0])[1:] {
-				if elem == 'r' && !(optR) && !(optH) && !(optO) {
-					optR = true
-				} else if elem == 'x' && !(optR) && !(optH) && !(optO) {
-					optH = true
-				} else if elem == 'o' && !(optR) && !(optH) && !(optO) {
-					optO = true
-				} else if elem == 'f' && !(optF) && !(optB) {
-					optF = true
-				} else if elem == 'b' && !(optF) && !(optB) {
-					optB = true
-				} else {
-					fmt.Println(escape.Vint(31, 1) + "Error: invalid options" + escape.Vint(0))
-					os.Exit(0)
-				}
-			}
-
-			if len(args) == 2 {
-				r, g, b = fu.GetRGB(args[1])
-			}
-		} else {
-			r, g, b = fu.GetRGB(args[0])
 		}
 	}
 
+	printRGB := flag.Bool("r", false, "Return the color in the RGB format")
+	printHex := flag.Bool("x", false, "Return the color in the hexadecimal format")
+	printOutput := flag.Bool("o", false, "Don't clean up the output")
+	ColorForeground := flag.Bool("f", false, "Color the text foreground")
+	ColorBackground := flag.Bool("b", false, "Color the text background")
+
+	flag.Parse()
+
 	fu.HideCursor()
 
+	if len(flag.Args()) == 1 {
+		// hsl, rgb, etc later.
+		r, g, b = fu.GetRGB(flag.Args()[0])
+	}
+
 	for {
-		if optF {
+		if *ColorForeground {
 			olen = fu.PrintInfo("fore", r, g, b)
-		} else if optB {
+		} else if *ColorBackground {
 			olen = fu.PrintInfo("back", r, g, b)
 		} else {
 			olen = fu.PrintInfo("normal", r, g, b)
@@ -95,13 +76,13 @@ func main() {
 		ch = fu.Getru()
 
 		if ch == 'q' {
-			if optO {
+			if *printOutput {
 			} else {
 				fmt.Print("\r" + strings.Repeat(" ", olen) + "\r")
-				if optR {
+				if *printRGB {
 					fmt.Print("rgb(" + strconv.Itoa(r) + ", " +
 						strconv.Itoa(g) + ", " + strconv.Itoa(b) + ")")
-				} else if optH {
+				} else if *printHex {
 					fmt.Print(fu.GetHex(r, g, b))
 				} else {
 					fmt.Print("\033[1A")

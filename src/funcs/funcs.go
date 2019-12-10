@@ -3,8 +3,8 @@ package funcs
 import (
 	"bufio"
 	"log"
-	"os"
 	"fmt"
+	"os"
 	"strconv"
 	"github.com/geremachek/escape"
 	"golang.org/x/crypto/ssh/terminal"
