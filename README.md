@@ -11,11 +11,11 @@ Usage: przm [OPTION] [COLOR]
 A simple, yet feature rich color picker and manipulator
 
 --help, -h: Display this information
--r: Return the color in the RGB format
--x: Return the color in the hexadecimal format
--o: Don't clean up the output
--f: Color the text foreground
--b: Color the text background
+--rgb, -r: Return the color in the RGB format
+--hex, -x: Return the color in the hexadecimal format
+--output, -o: Don't clean up the output
+--foreground, -f: Color the text foreground
+--background, -b: Color the text background
 
 h: Increment the 'R' value
 j: Increment the 'G' value
@@ -29,4 +29,18 @@ m: Decrement the 'B' value
 
 q: Exit the program
 [number]: Set the increment to [number] (0 = 10)
+```
+
+**Dependencies**
+
+```
+go get github.com/geremachek/escape 
+```
+
+```
+go get golang.org/x/crypto/ssh/terminal
+```
+
+```
+go get github.com/spf13/pflag
 ```

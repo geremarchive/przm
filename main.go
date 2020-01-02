@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"strings"
 	"strconv"
-	"flag"
+	flag "github.com/spf13/pflag"
 	"os"
 	fu "przm/funcs"
 )
@@ -13,11 +13,11 @@ const help = `Usage: przm [OPTION] [COLOR]
 A simple, yet feature rich color picker and manipulator
 
 --help, -h: Display this information
--r: Return the color in the RGB format
--x: Return the color in the hexadecimal format
--o: Don't clean up the output
--f: Color the text foreground
--b: Color the text background
+--rgb, -r: Return the color in the RGB format
+--hex, -x: Return the color in the hexadecimal format
+--output, -o: Don't clean up the output
+--foreground, -f: Color the text foreground
+--background, -b: Color the text background
 
 h: Increment the 'R' value
 j: Increment the 'G' value
@@ -42,26 +42,32 @@ func main() {
 		inc int = 1
 	)
 
-	if len(os.Args) > 1 {
+	if len(os.Args) == 2 {
 		if os.Args[1] == "-h" || os.Args[1] == "--help" {
 			fmt.Println(help)
 			os.Exit(0)
 		}
 	}
 
-	printRGB := flag.Bool("r", false, "Return the color in the RGB format")
-	printHex := flag.Bool("x", false, "Return the color in the hexadecimal format")
-	printOutput := flag.Bool("o", false, "Don't clean up the output")
-	ColorForeground := flag.Bool("f", false, "Color the text foreground")
-	ColorBackground := flag.Bool("b", false, "Color the text background")
+	printRGB := flag.BoolP("rgb", "r", false, "Return the color in the RGB format")
+	printHex := flag.BoolP("hex", "x", false, "Return the color in the hexadecimal format")
+	printOutput := flag.BoolP("output", "o", false, "Don't clean up the output")
+	ColorForeground := flag.BoolP("foreground", "f", false, "Color the text foreground")
+	ColorBackground := flag.BoolP("background", "b", false, "Color the text background")
 
 	flag.Parse()
 
 	fu.HideCursor()
 
-	if len(flag.Args()) == 1 {
+	args := flag.Args()
+
+	if len(args) == 1 {
 		// hsl, rgb, etc later.
-		r, g, b = fu.GetRGB(flag.Args()[0])
+		if rune(args[0][0]) == '#' {
+			r, g, b = fu.GetRGB(args[0][1:])
+		} else {
+			r, g, b = fu.GetRGB(args[0])
+		}
 	}
 
 	for {

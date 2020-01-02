@@ -1,5 +1,7 @@
 github.com/geremachek/escape v0.0.0-20191210041225-8fda8cd6715b h1:YI/8QXyMH/2G1h6IBZZxr9PYfjUXoY+wU/ZGLb0RqTs=
 github.com/geremachek/escape v0.0.0-20191210041225-8fda8cd6715b/go.mod h1:edYCS4QOQcfMH73lxsmKVRPnjMVa/y1HOQtP/e8zx0U=
+github.com/spf13/pflag v1.0.5 h1:iy+VFUOCP1a+8yFto/drg2CJ5u0yRoB7fZw3DKv/JXA=
+github.com/spf13/pflag v1.0.5/go.mod h1:McXfInJRrz4CZXVZOBLb0bTZqETkiAhM9Iw0y3An2Bg=
 golang.org/x/crypto v0.0.0-20190308221718-c2843e01d9a2/go.mod h1:djNgcEr1/C05ACkg1iLfiJU5Ep61QUkGW8qpdssI0+w=
 golang.org/x/crypto v0.0.0-20191206172530-e9b2fee46413 h1:ULYEB3JvPRE/IfO+9uO7vKV/xzVTO7XPAwm8xbf4w2g=
 golang.org/x/crypto v0.0.0-20191206172530-e9b2fee46413/go.mod h1:LzIPMQfyMNhhGPhUkYOs5KpL4U8rLKemX1yGLhDgUto=
