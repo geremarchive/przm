@@ -4,6 +4,8 @@ import (
 	"fmt"
 	"strings"
 	"strconv"
+	"math/rand"
+	"time"
 	flag "github.com/spf13/pflag"
 	"os"
 	fu "przm/funcs"
@@ -11,6 +13,10 @@ import (
 
 const help = `Usage: przm [OPTION] [COLOR]
 A simple, yet feature rich color picker and manipulator
+
+┏━┓┏━┓╺━┓┏┳┓
+┣━┛┣┳┛┏━┛┃┃┃
+╹  ╹┗╸┗━╸╹ ╹
 
 --help, -h: Display this information
 --rgb, -r: Return the color in the RGB format
@@ -23,10 +29,17 @@ h: Increment the 'R' value
 j: Increment the 'G' value
 k: Increment the 'B' value
 l: Increment all values (brightens the color)
+
 b: Decrement the 'R' value
 n: Decrement the 'G' value
 m: Decrement the 'B' value
 ,: Decrement all values (dims the color)
+
+H: Randomly set the 'R' value
+J: Randomly set the 'G' value
+K: Randomly set the 'B' value
+L: Randomly set all values 
+
 [space]: Sets the color to black
 
 q: Exit the program
@@ -60,6 +73,8 @@ func main() {
 	fu.HideCursor()
 
 	args := flag.Args()
+
+	rand.Seed(time.Now().UnixNano())
 
 	if len(args) == 1 {
 		// hsl, rgb, etc later.
@@ -116,6 +131,16 @@ func main() {
 			r = fu.DecVal(r, inc)
 			g = fu.DecVal(g, inc)
 			b = fu.DecVal(b, inc)
+		} else if ch == 'H' {
+			r = rand.Intn(256)
+		} else if ch == 'J' {
+			g = rand.Intn(256)
+		} else if ch == 'K' {
+			b = rand.Intn(256)
+		} else if ch == 'L' {
+			r = rand.Intn(256)
+			g = rand.Intn(256)
+			b = rand.Intn(256)
 		} else if ch == ' ' {
 			r, g, b = 0, 0, 0
 		} else if ch > 47 && ch < 58 {
