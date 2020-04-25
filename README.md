@@ -10,10 +10,6 @@
 Usage: przm [OPTION] [COLOR]
 A simple, yet feature rich color picker and manipulator
 
-┏━┓┏━┓╺━┓┏┳┓
-┣━┛┣┳┛┏━┛┃┃┃
-╹  ╹┗╸┗━╸╹ ╹
-
 --help, -h: Display this information
 --rgb, -r: Return the color in the RGB format
 --hex, -x: Return the color in the hexadecimal format
@@ -49,7 +45,7 @@ go get github.com/geremachek/escape
 ```
 
 ```
-go get golang.org/x/crypto/ssh/terminal
+go get github.com/geremachek/tinyscr
 ```
 
 ```

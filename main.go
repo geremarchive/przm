@@ -6,17 +6,14 @@ import (
 	"strconv"
 	"math/rand"
 	"time"
-	flag "github.com/spf13/pflag"
 	"os"
+	flag "github.com/spf13/pflag"
+	ts "github.com/geremachek/tinyscr"
 	fu "przm/funcs"
 )
 
 const help = `Usage: przm [OPTION] [COLOR]
 A simple, yet feature rich color picker and manipulator
-
-┏━┓┏━┓╺━┓┏┳┓
-┣━┛┣┳┛┏━┛┃┃┃
-╹  ╹┗╸┗━╸╹ ╹
 
 --help, -h: Display this information
 --rgb, -r: Return the color in the RGB format
@@ -58,7 +55,7 @@ func main() {
 	if len(os.Args) == 2 {
 		if os.Args[1] == "-h" || os.Args[1] == "--help" {
 			fmt.Println(help)
-			os.Exit(0)
+			return
 		}
 	}
 
@@ -70,7 +67,7 @@ func main() {
 
 	flag.Parse()
 
-	fu.HideCursor()
+	ts.HideCursor()
 
 	args := flag.Args()
 
@@ -94,7 +91,12 @@ func main() {
 			olen = fu.PrintInfo("normal", r, g, b)
 		}
 
-		ch = fu.Getru()
+		var err error
+		ch, err = ts.Getch()
+
+		if err != nil {
+			ch = 'q'
+		}
 
 		if ch == 'q' {
 			if *printOutput {
@@ -156,5 +158,5 @@ func main() {
 	}
 
 	fmt.Println()
-	fu.ShowCursor()
+	ts.ShowCursor()
 }
