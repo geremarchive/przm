@@ -23,4 +23,3 @@ func PrintInfo(col string, r int, g int, b int) int {
 
 	return len(output)
 }
-
